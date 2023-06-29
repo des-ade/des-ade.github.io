@@ -1,9 +1,10 @@
-//AOS.init();
+AOS.init();
 
 // You can also pass an optional settings object
 // below listed default settings
 AOS.init({
   // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+  startEvent: 'load',
   offset: 120, // offset (in px) from the original trigger point
   delay: 0, // values from 0 to 3000, with step 50ms
   duration: 700, // values from 0 to 3000, with step 50ms
