@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Project data for modal content
   const projectDetails = {
     "Codebots": {
-          image: "./assets/images/CB01.png",
+          image: "./assets/images/CB02.gif",
           text: "Codebots is an online platform that aims to expand programming education reach to children and teens. We provide safe" +
                 "and effective virtual classroom." +
                 "<br>This web application is based in technologies like PHP, Javascript, SQL, CSS, and a number of additional frameworks and APIs " +
