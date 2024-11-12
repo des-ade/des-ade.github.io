@@ -2,7 +2,7 @@
 :root {
     --color-body: #b6cbce;
     --color-heading: #eef3db;
-    --color-base: #9e8fdf;
+    --color-base: #7c70af;
     --color-base2: #373737;
     --color-brand: #e0f780;
     --color-brand2: #deff58;
@@ -36,7 +36,8 @@ img {
     color: var(--color-brand);
 }
 .bg-base {
-    background-color: var(--color-base);
+    background-color: rgba(158, 143, 223, 0.2);
+    /* background-color: var(--color-base); */
 }
 
 .full-height {
@@ -50,6 +51,7 @@ img {
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 .shadow-effect {
+    transition: box-shadow 0.3s ease;
     transform: all 0.4;
 }
 
@@ -69,9 +71,17 @@ img {
 
 /* NAVBAR */
 .navbar {
+    display: flex;
+    align-items: center;
     background-color: var(--color-base);
-}
 
+    z-index: 999;
+
+}
+.navbar-brand img {
+    max-width: 100%;
+    height: auto; 
+}
 .navbar .nav-link {
     font-weight: 700;
     text-transform: uppercase;
@@ -84,25 +94,6 @@ img {
 
 .navbar .nav-link.active {
     color: var(--color-brand);
-}
-
-@media (min-width: 992px){
-    .navbar {
-        min-height: 100vh;
-        width: var(--sidebar-width);
-        background: linear-gradient(rgba(158, 143, 223, 0.85), rgba(158, 143, 223, 0.85)), url(../images/Hanamura.jpg);
-        background-size: cover;
-        background-position: center;
-
-    }
-    .navbar-brand img {
-        border: 6px solid var(--color-brand);
-    }
-    /* CONTENT WRAPPER */
-    #content-wrapper {
-        padding-left: var(--sidebar-width);
-
-    }
 }
 
 /* BUTTON*/
@@ -120,10 +111,16 @@ img {
     color: var(--color-base2);
     border-color: var(--color-brand2);
 }
+.link-projects,
 .link-custom {
-    font-weight: 700;
+    font-weight: bold;
     position: relative;
+    margin-top: auto;
 }
+.link-projects {
+    font-size: 18px;
+}
+/* .link-projects::after, */
 .link-custom::after {
     content: "";
     width: 0%;
@@ -134,11 +131,23 @@ img {
     top: 100%;
     transition: all 0.2s;
 }
+.link-projects:hover::after {
+    width: 100%;
+}
 .link-custom:hover::after {
     width: 100%;
 }
 
 /* CARD */
+.card-custom-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-custom-content p {
+    flex-grow: 1; 
+}
 .card-custom .card-custom-image {
     overflow: hidden;
 }
@@ -147,7 +156,7 @@ img {
     transition: all 0.4s ease;
 }
 
-.card-custom:hover .card-custom-image img{
+.card-custom-image:hover img{
     transform: scale(1.1);
 }
 /* CONTACT */
@@ -182,4 +191,89 @@ img {
     background-color: var(--color-base);
     border-radius: 100px;
     font-size: 24px;
+}
+
+.modal {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+/* Show modal with fade-in effect */
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+.modal-content {
+    background-color: var(--color-base2);
+    margin: 10% auto;
+
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 8px;
+    width: 70%;
+}
+.modal-content img {
+    min-width: 200px;
+}
+#modal-inside {
+    display: flex;
+    flex-direction: row;
+}
+
+.close {
+    color: #8e8e8e;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: #f6f6f6;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (min-width: 992px){
+    .navbar {
+        min-height: 100vh;
+        width: var(--sidebar-width);
+        background: linear-gradient(rgba(158, 143, 223, 0.35), rgba(158, 143, 223, 0.35)), url(../images/BG-NAV01.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .navbar-brand img {
+        border: 6px solid var(--color-brand);
+    }
+
+    #content-wrapper {
+        padding-left: var(--sidebar-width);
+    }
+    
+}
+@media (max-width: 992px){
+    .group01 {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+    }
+    .modal-content {
+        margin: 5% auto;
+        width: 90%;
+    }
+    .modal-content img {
+        min-width: 100px;
+    }
 }
